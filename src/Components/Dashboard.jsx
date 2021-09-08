@@ -33,6 +33,7 @@ const Dashboard = () => {
   return (
     <div className="h-screen flex flex-col justify-between py-28">
       <h1 className="text-3xl">Kids</h1>
+
       {currentChildren.map((child) => (
         <Child key={child.childId} child={child} loading={loading} />
       ))}
