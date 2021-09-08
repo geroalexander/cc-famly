@@ -3,9 +3,6 @@ import { checkInChild, checkOutChild } from '../ApiService/fetchRequest';
 
 const Child = ({ child, loading }) => {
   const [checkedIn, setCheckedIn] = useState(child.checkedIn);
-  useEffect(() => {
-    setCheckedIn(child.checkedIn);
-  }, [child]);
 
   if (loading) return <h2>Loading...</h2>;
 
