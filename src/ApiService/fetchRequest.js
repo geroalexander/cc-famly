@@ -1,4 +1,3 @@
-const baseURL = 'https://tryfamly.co/api';
 const { REACT_APP_ACCESS_TOKEN } = process.env;
 
 const fetchAllChildren = async () => {
@@ -14,8 +13,41 @@ const fetchAllChildren = async () => {
   return res.json();
 };
 
-// const checkInChild = (childId) => {};
+const checkInChild = async (childId) => {
+  const options = {
+    accessToken: REACT_APP_ACCESS_TOKEN,
+    pickupTime: '22:00',
+  };
 
-// const checkOutChild = (childId) => {};
+  const res = await fetch(
+    `https://tryfamly.co/api/v2/children/${childId}/checkins`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(options),
+    }
+  );
+  return res.json();
+};
 
-module.exports = { fetchAllChildren };
+const checkOutChild = async (childId) => {
+  const options = {
+    accessToken: REACT_APP_ACCESS_TOKEN,
+  };
+
+  const res = await fetch(
+    `https://tryfamly.co/api/v2/children/${childId}/checkout`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(options),
+    }
+  );
+  return res.json();
+};
+
+module.exports = { fetchAllChildren, checkInChild, checkOutChild };

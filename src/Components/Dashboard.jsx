@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllChildren } from '../ApiService/fetchRequest';
-import ChildItem from './ChildItem';
+import Child from './Child';
 import Pagination from './Pagination';
 
 const Dashboard = () => {
@@ -18,17 +18,27 @@ const Dashboard = () => {
 
   useEffect(() => {
     loadChildren();
-  }, []);
+  }, [currentPage]);
 
+  // list current children
   const indexOfLastChild = currentPage * childrenPerPage;
   const indexOfFirstChild = indexOfLastChild - childrenPerPage;
   const currentChildren = children.slice(indexOfFirstChild, indexOfLastChild);
 
+  // chage page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
-    <div>
+    <div className="h-screen flex flex-col justify-between py-28">
       <h1 className="text-3xl">Kids</h1>
-      <ChildItem children={currentChildren} loading={loading}></ChildItem>
+      {currentChildren.map((child) => (
+        <Child child={child} loading={loading} />
+      ))}
       <Pagination
+        className="mt-4"
+        paginate={paginate}
         childrenPerPage={childrenPerPage}
         totalChildren={children.length}
       />
