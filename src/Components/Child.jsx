@@ -25,7 +25,6 @@ const Child = ({ child, loading }) => {
     <div className="flex flex-col items-center">
       <div
         onClick={toggleCheckIn}
-        key={child.childId}
         className={
           (checkedIn ? 'bg-green-200 ' : 'bg-gray-300 ') +
           'flex flex-col w-60 border-2 m-2 rounded-md justify-center p-3 transform hover:scale-95'

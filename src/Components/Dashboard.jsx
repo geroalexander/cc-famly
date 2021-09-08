@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 
 const Dashboard = () => {
   const [children, setChildren] = useState([]);
-  const [childrenPerPage, setChildrenPerPage] = useState(5);
+  const [childrenPerPage] = useState(5);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -34,7 +34,7 @@ const Dashboard = () => {
     <div className="h-screen flex flex-col justify-between py-28">
       <h1 className="text-3xl">Kids</h1>
       {currentChildren.map((child) => (
-        <Child child={child} loading={loading} />
+        <Child key={child.childId} child={child} loading={loading} />
       ))}
       <Pagination
         className="mt-4"
