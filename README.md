@@ -1,7 +1,6 @@
-# cc-recap
+# cc-famly
 
-A web application built with React.js that allows the user to checkin and checkout children from an external API.
-
+A web application built with React.js that allows the user to checkin and checkout children from an external API. 
 Uses pagination to display 5 children at a time.
 
 ### Starting the development environment
