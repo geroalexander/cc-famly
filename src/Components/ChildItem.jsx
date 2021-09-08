@@ -8,7 +8,7 @@ const ChildItem = ({ children, loading }) => {
   return (
     <>
       {children.map((child) => (
-        <div key={child.childId} className="border-2 m-2 bg-grey-200">
+        <div key={child.childId} className="border-2 m-2">
           {child.checkedIn ? <p>&#9989;</p> : <p>&#10062;</p>}
           {child.checkedIn.toString()} : {child.name.fullName}
         </div>
