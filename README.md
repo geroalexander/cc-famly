@@ -18,7 +18,7 @@ I chose pagination over infinite scroll for displaying the rendered data; pagina
 
 Throughout the application I used functional components and hooks, rather than class components and life cycle methods. 
 
-Seeing as the API does not support offset/limit, and simply returns 60 childen I decided to fetch the data every time the user switched to a new page. This would not have been my design choice if the data set were much larger. In that case, I would have implemented state mangerment, either with React Context or Redux.
+Seeing as the API does not support offset/limit, and simply returns 60 childen I decided to fetch the data every time the user switched to a new page. This would not have been my design choice if the data set were much larger. In that case, I would have implemented state management, either with React Context or Redux.
 
 ### Using the application
 
